@@ -1,3 +1,11 @@
+/*
+	Title: 				HNotes 
+	Description: 		This is the notes taking and displaying web base application. In which we can add a note and delete it as well. We can also search using the search bar after add it to our notes.
+	Date:				19/04/2021
+	Last Updated:		20/04/2021
+*/
+
+
 console.log("let the game begin");
 showHNotes();
 
