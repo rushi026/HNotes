@@ -2,7 +2,7 @@
 	Title: 	            HNotes 
 	Description:        This is the notes taking and displaying web base application. In which we can add a note and delete it as well. We can also search using the search bar after add it to our notes.
 	Date:		        19/04/2021
-	Last Updated:       20/04/2021
+	Last Updated:       25/04/2021
 	Author:				Rushiraj Parekh
 */
 
@@ -29,7 +29,6 @@ addBtn.addEventListener('click', (e) => {
     localStorage.setItem('notes', JSON.stringify(notesObj));
     title.value = '';
     description.value = '';
-    // console.log(notesObj);
 
     showHNotes();
 });
@@ -55,13 +54,18 @@ function showHNotes(){
         thisNoteObj = JSON.parse(elem);
         title = thisNoteObj.noteTitle;
         description = thisNoteObj.noteDesc;
+        descriptions = description.split('\n');
+        p_s = ``;
+        descriptions.forEach((d) => {
+            p_s += `<p style="margin: 0px;" class="card-text">${d}</p>`;
+        })
 
         html += `
         <div class="noteCard card my-3 mx-2" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${title}</h5>
-                <p class="card-text">${description}</p>
-                <button id="${i}" onclick="deleteHNote(this.id)" class="btn delBtn btn-primary">Delete HNote</button>
+                ${p_s}
+                <button style="margin-top: 10px;" id="${i}" onclick="deleteHNote(this.id)" class="btn delBtn btn-primary">Delete HNote</button>
             </div>
         </div>
         `;
